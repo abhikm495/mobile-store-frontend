@@ -8,10 +8,10 @@ import { BsCart3 } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/auth";
 import toast from "react-hot-toast";
-import SearchBar from "./SearchBar/SearchBar";
+// import SearchBar from "./SearchBar/SearchBar";
 import { useCart } from "../context/cart";
 import { Badge } from "antd";
-import { AiFillMobile, AiOutlineMobile } from "react-icons/ai";
+import { AiOutlineMobile } from "react-icons/ai";
 const Header = () => {
   let [open, setOpen] = useState(false);
 

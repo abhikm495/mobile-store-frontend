@@ -6,7 +6,7 @@ import UserProductCard from "../components/ProductCard/UserProductCard";
 import SearchBar from "../components/SearchBar/SearchBar";
 
 const Search = () => {
-  const [values, setValues] = useSearch();
+  const [values] = useSearch();
   console.log(values);
   return (
     <Layout title={"Search results"}>

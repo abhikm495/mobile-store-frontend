@@ -1,9 +1,9 @@
 import axios from "axios";
 import Layout from "../components/Layout/Layout";
-import { useAuth } from "../context/auth";
-import { useNavigate } from "react-router-dom";
+// import { useAuth } from "../context/auth";
+// import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Checkbox, Radio } from "antd";
+import { Radio } from "antd";
 import UserProductCard from "../components/ProductCard/UserProductCard";
 import { Prices } from "../components/Filter/Price";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,28 +23,23 @@ const HomePage = () => {
     setIsOpen(!isOpen);
   };
 
-  const [auth, setAuth] = useAuth();
-  const navigate = useNavigate();
+  // const [auth, setAuth] = useAuth();
+  // const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
 
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [type, setType] = useState([]);
-  const [os, setOs] = useState([]);
-  const [memory, setMemory] = useState([]);
-  const [processor, setProcessor] = useState([]);
+  // const [type, setType] = useState([]);
+  // const [os, setOs] = useState([]);
+  // const [memory, setMemory] = useState([]);
+  // const [processor, setProcessor] = useState([]);
   const [radio, setRadio] = useState([]);
-  const [checkedType, setCheckedType] = useState("");
-  const [checkedOs, setCheckedOs] = useState([]);
-  const [checkedMemory, setCheckedMemory] = useState([]);
-  const [checkedProcessor, setCheckedProcessor] = useState([]);
-
-  useEffect(() => {
-    if (page === 1) return;
-    loadMore();
-  }, [page]);
+  // const [checkedType, setCheckedType] = useState("");
+  // const [checkedOs, setCheckedOs] = useState([]);
+  // const [checkedMemory, setCheckedMemory] = useState([]);
+  // const [checkedProcessor, setCheckedProcessor] = useState([]);
 
   const loadMore = async () => {
     try {
@@ -59,6 +54,11 @@ const HomePage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
 
   const getTotal = async () => {
     try {
@@ -84,20 +84,20 @@ const HomePage = () => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    const uniqueTypesSet = new Set(products?.map((product) => product?.type));
-    const uniqueOsSet = new Set(products?.map((product) => product?.os));
-    const uniqueMemorySet = new Set(
-      products?.map((product) => product?.memory)
-    );
-    const uniqueProcessorSet = new Set(
-      products?.map((product) => product?.processor)
-    );
-    setType(Array.from(uniqueTypesSet));
-    setOs(Array.from(uniqueOsSet));
-    setMemory(Array.from(uniqueMemorySet));
-    setProcessor(Array.from(uniqueProcessorSet));
-  }, [products, checkedType]);
+  // useEffect(() => {
+  //   const uniqueTypesSet = new Set(products?.map((product) => product?.type));
+  //   const uniqueOsSet = new Set(products?.map((product) => product?.os));
+  //   const uniqueMemorySet = new Set(
+  //     products?.map((product) => product?.memory)
+  //   );
+  //   const uniqueProcessorSet = new Set(
+  //     products?.map((product) => product?.processor)
+  //   );
+  //   setType(Array.from(uniqueTypesSet));
+  //   setOs(Array.from(uniqueOsSet));
+  //   setMemory(Array.from(uniqueMemorySet));
+  //   setProcessor(Array.from(uniqueProcessorSet));
+  // }, [products, checkedType]);
   useEffect(() => {
     getTotal();
   }, []);
