@@ -14,10 +14,10 @@ import SearchBar from "../components/SearchBar/SearchBar";
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const isMobile = useMedia({ maxWidth: 768 });
-  useEffect(() => {
-    setIsOpen(!isMobile);
-  }, [isMobile]);
+  // const isMobile = useMedia({ maxWidth: 768 });
+  // useEffect(() => {
+  //   setIsOpen(!isMobile);
+  // }, [isMobile]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -128,7 +128,7 @@ const HomePage = () => {
       <div className="flex">
         <div
           className={`bg-gray-900 text-white min-h-[80vh] w-50 ${
-            isOpen ? "w-[256px]" : "min-w-[64px]"
+            isOpen ? "min-w-[120px]  sm:min-w-[250px]" : "min-w-[64px]"
           }  overflow-y-auto transition-all ease-in-out duration-300`}
         >
           {/* Open/Close Icon */}
@@ -136,7 +136,7 @@ const HomePage = () => {
             <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="2x" />
           </div>
           {isOpen && (
-            <ul className="p-4">
+            <ul className="p-4 flex flex-col justify-center items-center">
               <h2 className="text-2xl font-bold mb-4">Apply filters</h2>
               <li className="mb-4">
                 <h1 className="text-lg font-semibold mb-2">Filter by Price</h1>
@@ -147,7 +147,7 @@ const HomePage = () => {
                   >
                     {Prices?.map((p) => (
                       <div key={p._id} className="mb-2">
-                        <Radio value={p.array} className="mr-2 text-white">
+                        <Radio value={p.array} className="mr-1 text-white">
                           {p.name}
                         </Radio>
                       </div>
@@ -155,7 +155,7 @@ const HomePage = () => {
                   </Radio.Group>
                 </div>
               </li>
-              <li className="ml-10">
+              <li className="ml-10 flex justify-center mr-6">
                 <button
                   onClick={() => setRadio(null)}
                   className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
