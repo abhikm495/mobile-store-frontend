@@ -226,7 +226,7 @@ const HomePage = () => {
 
         <div className="col-md-9 p-4 w-full mt-5 ml-3 sm:mx-auto sm:ml-20 flex flex-col">
           <SearchBar />
-          <h1 className="text-3xl font-bold mb-6 text-center">
+          <h1 className="text-3xl font-bold mb-6 text-center ml-5 sm:ml-0">
             ALL PRODUCTS LIST
           </h1>
           <div className=" grid grid-cols-[240px] py-24 md:py-32  md:grid-cols-[370px,370px] lg:grid-cols-[370px,370px,370px] justify-center gap-y-20 overflow-hidden">
