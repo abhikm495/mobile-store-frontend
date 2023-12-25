@@ -130,7 +130,7 @@ const HomePage = () => {
           className={`bg-gray-900 text-white min-h-full w-50 absolute ${
             isOpen
               ? "min-w-[10px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] xl:min-w-[180px]"
-              : "min-w-[64px]"
+              : "max-w-[50px]  sm:min-w-[64px]"
           }  overflow-y-auto transition-all ease-in-out duration-300`}
         >
           {/* Open/Close Icon */}

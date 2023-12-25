@@ -20,14 +20,14 @@ const SearchBar = () => {
     }
   };
   return (
-    <div className="flex  sm:justify-center mb-2">
+    <div className="flex justify-center items-center mb-2">
       <form
-        className="flex w-full max-w-4xl"
+        className="flex w-full max-w-20 justify-center sm:max-w-4xl "
         role="search"
         onSubmit={handleSubmit}
       >
         <input
-          className="flex-grow border border-gray-300 px-2 py-1 rounded"
+          className="flex-grow border border-gray-300 px-2 py-1 rounded sm:max-w-full ]"
           type="search"
           placeholder="Search"
           aria-label="Search"
