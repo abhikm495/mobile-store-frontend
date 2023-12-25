@@ -3,7 +3,7 @@ import Header from "../Header";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="relative">
       <Header />
       <main className="min-h-[80vh]">{children}</main>
       <Footer />
