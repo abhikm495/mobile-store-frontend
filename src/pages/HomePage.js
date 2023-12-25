@@ -125,10 +125,12 @@ const HomePage = () => {
   };
   return (
     <Layout>
-      <div className="flex overflow-hidden">
+      <div className="flex overflow-hidden relative ">
         <div
-          className={`bg-gray-900 text-white min-h-[80vh] w-50 ${
-            isOpen ? "min-w-[120px]  sm:min-w-[250px]" : "min-w-[64px]"
+          className={`bg-gray-900 text-white min-h-full w-50 absolute ${
+            isOpen
+              ? "min-w-[10px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] xl:min-w-[180px]"
+              : "min-w-[64px]"
           }  overflow-y-auto transition-all ease-in-out duration-300`}
         >
           {/* Open/Close Icon */}
@@ -222,7 +224,7 @@ const HomePage = () => {
           )}
         </div>
 
-        <div className="col-md-9 p-4 w-full mt-5 mx-auto flex flex-col">
+        <div className="col-md-9 p-4 w-full mt-5 mx-auto ml-20 flex flex-col">
           <SearchBar />
           <h1 className="text-3xl font-bold mb-6 text-center">
             ALL PRODUCTS LIST
