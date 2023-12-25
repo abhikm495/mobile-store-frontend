@@ -20,7 +20,7 @@ const SearchBar = () => {
     }
   };
   return (
-    <div className="flex justify-center mb-2">
+    <div className="flex  sm:justify-center mb-2">
       <form
         className="flex w-full max-w-4xl"
         role="search"

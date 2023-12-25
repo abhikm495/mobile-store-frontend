@@ -224,7 +224,7 @@ const HomePage = () => {
           )}
         </div>
 
-        <div className="col-md-9 p-4 w-full mt-5 mx-auto ml-20 flex flex-col">
+        <div className="col-md-9 p-4 w-full mt-5 ml-3 sm:mx-auto sm:ml-20 flex flex-col">
           <SearchBar />
           <h1 className="text-3xl font-bold mb-6 text-center">
             ALL PRODUCTS LIST
