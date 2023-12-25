@@ -229,7 +229,7 @@ const HomePage = () => {
           <h1 className="text-3xl font-bold mb-6 text-center">
             ALL PRODUCTS LIST
           </h1>
-          <div className=" grid grid-cols-[360px] py-24 md:py-32  md:grid-cols-[370px,370px] lg:grid-cols-[370px,370px,370px] justify-center gap-y-20 overflow-hidden">
+          <div className=" grid grid-cols-[240px] py-24 md:py-32  md:grid-cols-[370px,370px] lg:grid-cols-[370px,370px,370px] justify-center gap-y-20 overflow-hidden">
             {products.map((p) => (
               <div key={p._id} className="mb-8">
                 <UserProductCard
