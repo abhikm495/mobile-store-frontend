@@ -106,6 +106,7 @@ const Header = () => {
               <NavLink
                 to="/"
                 className="text-xl hover:text-cyan-500 duration-500"
+                onClick={handleLogout}
               >
                 LOGOUT
               </NavLink>
