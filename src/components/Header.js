@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { BsList, BsX } from "react-icons/bs";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { BsCart3, BsMenuButton, BsOpencollective } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth";
 import toast from "react-hot-toast";
 // import SearchBar from "./SearchBar/SearchBar";
@@ -19,6 +19,8 @@ const Header = () => {
 
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
+
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     setAuth({ ...auth, user: null, token: "" });
@@ -45,7 +47,10 @@ const Header = () => {
   return (
     <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between ">
       <div className="flex justify-between items-center ">
-        <span className="text-2xl font-[Poppins] cursor-pointer">
+        <span
+          onClick={() => navigate("/")}
+          className="text-2xl font-[Poppins] cursor-pointer"
+        >
           <img
             className="h-10 inline"
             src="https://static.vecteezy.com/system/resources/previews/005/242/944/non_2x/phone-icon-telephone-icon-symbol-in-hand-for-app-and-messenger-free-vector.jpg"
