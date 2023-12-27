@@ -14,6 +14,8 @@ import toast from "react-hot-toast";
 import { useCart } from "../context/cart";
 import { Badge } from "antd";
 import { AiOutlineMobile } from "react-icons/ai";
+import HomePage from "./phonebazar.jpeg";
+
 const Header = () => {
   let [open, setOpen] = useState(false);
 
@@ -53,7 +55,7 @@ const Header = () => {
         >
           <img
             className="h-10 inline"
-            src="https://static.vecteezy.com/system/resources/previews/005/242/944/non_2x/phone-icon-telephone-icon-symbol-in-hand-for-app-and-messenger-free-vector.jpg"
+            src={require("./phonebazar.jpeg")}
             alt="img"
           />
           Phone Bazaar
