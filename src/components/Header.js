@@ -47,7 +47,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between ">
+    <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between top-0 z-50 fixed w-full ">
       <div className="flex justify-between items-center ">
         <span
           onClick={() => navigate("/")}

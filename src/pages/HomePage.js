@@ -125,7 +125,7 @@ const HomePage = () => {
   };
   return (
     <Layout>
-      <div className="flex overflow-hidden relative ">
+      <div className="flex overflow-hidden relative">
         <div
           className={`bg-gray-900 text-white min-h-full w-50 absolute z-30 sm:fixed${
             isOpen
