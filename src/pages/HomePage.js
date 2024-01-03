@@ -78,6 +78,7 @@ const HomePage = () => {
         `${process.env.REACT_APP_API}/api/v1/products/product-list/${page}`
       );
       setLoading(false);
+      // console.log(data.products);
       setProducts(data?.products);
     } catch (error) {
       setLoading(false);
@@ -98,13 +99,14 @@ const HomePage = () => {
   //   setMemory(Array.from(uniqueMemorySet));
   //   setProcessor(Array.from(uniqueProcessorSet));
   // }, [products, checkedType]);
-  useEffect(() => {
-    getTotal();
-  }, []);
 
   useEffect(() => {
     if (!radio?.length) getAllProducts();
   }, [radio?.length]);
+
+  useEffect(() => {
+    getTotal();
+  }, []);
 
   useEffect(() => {
     if (radio?.length) filterProduct();
@@ -230,14 +232,14 @@ const HomePage = () => {
             ALL PRODUCTS LIST
           </h1>
           <div className=" grid grid-cols-[240px] py-24 md:py-32  md:grid-cols-[370px,370px] lg:grid-cols-[370px,370px,370px] justify-center gap-y-20 overflow-hidden">
-            {products.map((p) => (
-              <div key={p._id} className="mb-8">
+            {products?.map((p) => (
+              <div key={p?._id} className="mb-8">
                 <UserProductCard
                   product={p}
-                  slug={p.slug}
+                  slug={p?.slug}
                   img={`${process.env.REACT_APP_API}/api/v1/products/product-photo/${p._id}`}
-                  name={p.name}
-                  price={p.price}
+                  name={p?.name}
+                  price={p?.price}
                 />
               </div>
             ))}
