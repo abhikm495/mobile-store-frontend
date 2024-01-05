@@ -11,7 +11,7 @@ const SearchBar = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/products/search/${values.keyword}`
+        `${process.env.REACT_APP_API}/api/v1/products/search/${values?.keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");
@@ -20,7 +20,7 @@ const SearchBar = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center mb-2">
+    <div className="flex justify-center items-center mb-2 ">
       <form
         className="flex w-full max-w-20 ml-6 sm:ml-0 justify-center sm:max-w-4xl "
         role="search"

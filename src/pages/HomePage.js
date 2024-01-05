@@ -9,7 +9,7 @@ import { Prices } from "../components/Filter/Price";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import { useMedia } from "use-media";
+// import { useMedia } from "use-media";
 import SearchBar from "../components/SearchBar/SearchBar";
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,11 +54,6 @@ const HomePage = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (page === 1) return;
-    loadMore();
-  }, [page]);
 
   const getTotal = async () => {
     try {
@@ -111,6 +106,11 @@ const HomePage = () => {
   useEffect(() => {
     if (radio?.length) filterProduct();
   }, [radio]);
+
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
 
   const filterProduct = async () => {
     try {
@@ -226,7 +226,7 @@ const HomePage = () => {
           )}
         </div>
 
-        <div className="col-md-9 p-4 w-full mt-5 ml-3 sm:mx-auto sm:ml-20 flex flex-col relative">
+        <div className="col-md-9 p-0 w-full mt-5 ml-3 sm:mx-auto sm:ml-20 flex flex-col relative">
           <SearchBar />
           <h1 className="text-3xl font-bold mb-6 text-center ml-5 sm:ml-0">
             ALL PRODUCTS LIST
