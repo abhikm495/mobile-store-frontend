@@ -8,10 +8,16 @@ import UserProductCard from "../components/ProductCard/UserProductCard";
 import { Prices } from "../components/Filter/Price";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-
-// import { useMedia } from "use-media";
+import { useMedia } from "use-media";
 import SearchBar from "../components/SearchBar/SearchBar";
+
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/cart";
+
 const HomePage = () => {
+  const [cart, setCart] = useCart();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   // const isMobile = useMedia({ maxWidth: 768 });
@@ -226,7 +232,7 @@ const HomePage = () => {
           )}
         </div>
 
-        <div className="col-md-9 p-0 w-full mt-5 ml-3 sm:mx-auto sm:ml-20 flex flex-col relative">
+        <div className="col-md-9 p-4 w-full mt-5 ml-3 sm:mx-auto sm:ml-20 flex flex-col relative">
           <SearchBar />
           <h1 className="text-3xl font-bold mb-6 text-center ml-5 sm:ml-0">
             ALL PRODUCTS LIST
@@ -234,13 +240,50 @@ const HomePage = () => {
           <div className=" grid grid-cols-[240px] py-24 md:py-32  md:grid-cols-[370px,370px] lg:grid-cols-[370px,370px,370px] justify-center gap-y-20 overflow-hidden">
             {products?.map((p) => (
               <div key={p?._id} className="mb-8">
-                <UserProductCard
-                  product={p}
-                  slug={p?.slug}
-                  img={`${process.env.REACT_APP_API}/api/v1/products/product-photo/${p._id}`}
-                  name={p?.name}
-                  price={p?.price}
-                />
+                <div className="flex flex-wrap">
+                  <div className=" m-2 border border-black hover:cursor-pointer">
+                    <img
+                      onClick={() => navigate(`/product/${p.slug}`)}
+                      src={`${process.env.REACT_APP_API}/api/v1/products/product-photo/${p._id}`}
+                      className="mt-2 w-full h-[300px] object-contain"
+                      alt={p.name}
+                    />
+                    <div className="bg-gray-400  bg-opacity-25 w-full overflow-auto">
+                      <div
+                        className="flex flex-row justify-between"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        <h5 className="mx-2 text-xl font-semibold mb-2">
+                          {p.name}
+                        </h5>
+                        <h5 className="text-xl mx-2 mb-2 text-green-500 font-bold">
+                          ${p.price}
+                        </h5>
+                      </div>
+                      <div className="flex flex-row justify-evenly mb-2 ">
+                        <button
+                          onClick={() => navigate(`/product/${p.slug}`)}
+                          className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ms-1 "
+                        >
+                          More Details
+                        </button>
+                        <button
+                          className=" bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 ms-1"
+                          onClick={() => {
+                            setCart([...cart, { p }]);
+                            localStorage.setItem(
+                              "cart",
+                              JSON.stringify([...cart, p])
+                            );
+                            toast.success("Item Added to cart");
+                          }}
+                        >
+                          ADD TO CART
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
